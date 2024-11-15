@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class Transport implements TransportCheck {
+public abstract class Transport implements TransportCheck {
     private final String modelName;
     private final int wheelsCount;
 
@@ -38,23 +38,39 @@ public class Transport implements TransportCheck {
         return Objects.hash(modelName, wheelsCount);
     }
 
+    static void checkTransport(Transport transport) {
+        if (transport.getWheelsCount() == 2) {
+            System.out.println("Обслуживаем " + transport.getModelName());
+            for (int i = 0; i < transport.getWheelsCount(); i++) {
+                transport.updateTyre();
+            }
+        } else if (transport.getWheelsCount() > 2 & transport.getWheelsCount() <= 4) {
+
+            System.out.println("Обслуживаем " + transport.getModelName());
+            transport.checkEngine();
+            for (int i = 0; i < transport.getWheelsCount(); i++) {
+                transport.updateTyre();
+            }
+        } else {
+            System.out.println("Обслуживаем " + transport.getModelName());
+            transport.checkEngine();
+            transport.checkTrailer();
+            for (int i = 0; i < transport.getWheelsCount(); i++) {
+                transport.updateTyre();
+
+
+            }
+        }
+    }
+
     @Override
     public void updateTyre() {
         System.out.println("Меняем покрышку");
     }
 
-    @Override
-    public void checkEngine() {
-        System.out.println("Проверяем двигатель");
-    }
-
-    @Override
-    public void checkTrailer() {
-
-    }
-
 
 }
+
 
 
 
