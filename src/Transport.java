@@ -1,8 +1,7 @@
-import java.util.Objects;
 
-public abstract class Transport implements TransportCheck {
-    private final String modelName;
-    private final int wheelsCount;
+public abstract class Transport implements TransportService {
+    private  String modelName;
+    private  int wheelsCount;
 
     public Transport(String modelName, int wheelsCount) {
         this.modelName = modelName;
@@ -19,26 +18,25 @@ public abstract class Transport implements TransportCheck {
 
     @Override
     public String toString() {
-        return "Transport: " +
+        return "Transport{" +
                 "modelName='" + modelName + '\'' +
-                ", wheelsCount=" + wheelsCount;
+                ", wheelsCount=" + wheelsCount +
+                '}';
     }
 
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Transport transport = (Transport) o;
-        return wheelsCount == transport.wheelsCount && Objects.equals(modelName, transport.modelName);
+    public void checkTrailer() {
+        System.out.println("Проверяем прицеп");
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(modelName, wheelsCount);
+    public void updateTyre() {
+        System.out.println("Меняем покрышку");
     }
 
-    static void checkTransport(Transport transport) {
+    public void checkEngine() {
+        System.out.println("Проверяем двигатель");
+    }
+@Override
+public void transportCheck(Transport transport) {
         if (transport.getWheelsCount() == 2) {
             System.out.println("Обслуживаем " + transport.getModelName());
             for (int i = 0; i < transport.getWheelsCount(); i++) {
@@ -57,19 +55,13 @@ public abstract class Transport implements TransportCheck {
             transport.checkTrailer();
             for (int i = 0; i < transport.getWheelsCount(); i++) {
                 transport.updateTyre();
-
-
             }
         }
     }
 
-    @Override
-    public void updateTyre() {
-        System.out.println("Меняем покрышку");
-    }
-
-
+    public abstract void transportCheck();
 }
+
 
 
 

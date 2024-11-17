@@ -5,15 +5,9 @@ public class Truck extends Transport {
         super(modelName, wheelsCount);
     }
 
-
     @Override
-    public void checkEngine() {
+    public void transportCheck() {
 
-            System.out.println("Проверяем двигатель");
-    }
-
-    @Override
-    public void checkTrailer() {
-        System.out.println("Проверяем прицеп");
     }
 }
+

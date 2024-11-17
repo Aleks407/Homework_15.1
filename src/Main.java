@@ -1,4 +1,5 @@
-public class Main {
+public class Main  {
+
     public static void main(String[] args) {
         Car[] car = {
                 new Car("Car1", 4),
@@ -29,6 +30,7 @@ public class Main {
 
         PrintServiceStation station = new PrintServiceStation();
         station.check(transport);
-
     }
+
 }
+
