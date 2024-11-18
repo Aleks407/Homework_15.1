@@ -1,7 +1,7 @@
 
-public abstract class Transport implements TransportService {
-    private  String modelName;
-    private  int wheelsCount;
+public class Transport implements TransportService {
+    private String modelName;
+    private int wheelsCount;
 
     public Transport(String modelName, int wheelsCount) {
         this.modelName = modelName;
@@ -35,8 +35,8 @@ public abstract class Transport implements TransportService {
     public void checkEngine() {
         System.out.println("Проверяем двигатель");
     }
-@Override
-public void transportCheck(Transport transport) {
+
+    public void transportCheck(Transport transport) {
         if (transport.getWheelsCount() == 2) {
             System.out.println("Обслуживаем " + transport.getModelName());
             for (int i = 0; i < transport.getWheelsCount(); i++) {
@@ -59,7 +59,6 @@ public void transportCheck(Transport transport) {
         }
     }
 
-    public abstract void transportCheck();
 }
 
 

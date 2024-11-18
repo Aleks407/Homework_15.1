@@ -5,7 +5,6 @@ public class Truck extends Transport {
         super(modelName, wheelsCount);
     }
 
-    @Override
     public void transportCheck() {
 
     }
