@@ -5,6 +5,5 @@ public class Bicycle extends Transport {
     }
 
     public void transportCheck() {
-
     }
 }

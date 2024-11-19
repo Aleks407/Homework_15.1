@@ -31,6 +31,5 @@ public class Main {
         PrintServiceStation station = new PrintServiceStation();
         station.check(transport);
     }
-
 }
 

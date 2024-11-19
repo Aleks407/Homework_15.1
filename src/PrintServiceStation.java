@@ -3,7 +3,6 @@ public class PrintServiceStation {
         for (int i = 0; i < transport.length ; i++) {
             transport[i].transportCheck(transport[i]);
         }
-
     }
 
  }
